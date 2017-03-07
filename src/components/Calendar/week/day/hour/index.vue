@@ -1,6 +1,5 @@
 <template>
   <div>
-    <slot>
-    </slot>
+    Hello
   </div>
 </template>
