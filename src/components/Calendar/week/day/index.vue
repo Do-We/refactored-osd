@@ -3,12 +3,14 @@
     <table class='dayTable'>
       <thead>
         <tr>
-          <th><slot></slot></th>
+          <th>{{today}}</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for='hour in hours'>
-          <td></td>
+          <td @click.prevent='bookTimeslot(today, hour)'>
+            <hour v-if='selected === JSON.stringify([today, hour])'></hour>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -16,7 +18,15 @@
 </template>
 
 <script>
+import hour from './hour';
   export default {
+    components: {
+      hour,
+    },
+    props: [
+      'today',
+      'selected'
+    ],
     created() {
       let temp = [];
       for(let i = 0; i <= 14; i++) {
@@ -27,9 +37,19 @@
     data () {
       return {
         hours: null,
-        today: new Date(),
       }
     },
+    methods: {
+      bookTimeslot: function(day, hour, data) {
+        this.$parent.$emit('selected', JSON.stringify([day, hour]));
+      },
+    },
+    // events: {
+    //   selected: () => {
+    //     console.log('hello');
+    //     console.log(this.$data.selected);
+    //   }
+    // }
   }
 </script>
 
