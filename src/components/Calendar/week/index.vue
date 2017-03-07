@@ -31,7 +31,7 @@
       })
     },
     methods: {
-      calculateDate: (data)=> {
+      calculateDate (data) {
         let today = new Date();
         let past = today.getDay() - 0;
         let future = 6 - today.getDay();
@@ -46,7 +46,6 @@
           thisWeek = thisWeek.concat(date.format("ddd, Do"));
         }
         data.currentWeek = thisWeek;
-        return data.currentWeek;
       }
     },
   }
