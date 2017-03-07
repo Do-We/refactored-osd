@@ -1,7 +1,7 @@
 <template>
   <div id='weekComp'>
     <div v-for='days in currentWeek' class='weekClass'>
-      <day>{{days}}</day>
+      <day :today='days' :selected='selected'></day>
     </div>
   </div>
 </template>
@@ -17,10 +17,18 @@
     data () {
       return {
         currentWeek: null,
+        selected: null,
       }
     }, 
     created() {
       this.calculateDate(this.$data);
+      this.$on('selected', (msg)=> {
+        if(this.$data.selected !== msg) {
+          this.$data.selected = msg;
+        } else {
+          this.$data.selected = null;
+        }
+      })
     },
     methods: {
       calculateDate: (data)=> {
@@ -38,10 +46,9 @@
           thisWeek = thisWeek.concat(date.format("ddd, Do"));
         }
         data.currentWeek = thisWeek;
-        console.log(data.currentWeek);
         return data.currentWeek;
       }
-    }
+    },
   }
 </script>
 
