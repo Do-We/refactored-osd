@@ -40,7 +40,7 @@ import hour from './hour';
       }
     },
     methods: {
-      bookTimeslot: function(day, hour, data) {
+      bookTimeslot (day, hour, data) {
         this.$parent.$emit('selected', JSON.stringify([day, hour]));
       },
     },
