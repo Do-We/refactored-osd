@@ -4,10 +4,7 @@ import LandingPage from '../components/LandingPage';
 import NavBar from '../components/NavBar';
 import SignupStep from '../components/Signup/SignupStep';
 import Signup from '../components/Signup';
-<<<<<<< HEAD
 import Calendar from '../components/Calendar';
-=======
->>>>>>> create skeleton for profile
 import Profile from '../components/Profile';
 
 Vue.use(Router);
@@ -36,14 +33,11 @@ export default new Router({
           ],
         },
         {
-<<<<<<< HEAD
           path: 'calendar',
           name: 'calendar',
           component: Calendar,
         },
         {
-=======
->>>>>>> create skeleton for profile
           path: ':userId',
           component: Profile,
         },
