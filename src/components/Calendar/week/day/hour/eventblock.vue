@@ -41,6 +41,7 @@
         </g>
       </svg> 
     </button>
+    <span>ok</span>
   </div>
 </template>
 
