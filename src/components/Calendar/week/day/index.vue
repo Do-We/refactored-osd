@@ -9,7 +9,7 @@
       <tbody>
         <tr v-for='hour in hours'>
           <td @click.prevent='bookTimeslot(today, hour)'>
-            <hour v-if='selected === JSON.stringify([today, hour])'></hour>
+            <hour :time-slot='[today, hour]' v-if='selected === JSON.stringify([today, hour])'></hour>
           </td>
         </tr>
       </tbody>
