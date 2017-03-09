@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import SignupStep from '../components/Signup/SignupStep';
 import Signup from '../components/Signup';
 import Calendar from '../components/Calendar';
+import Profile from '../components/Profile';
 
 Vue.use(Router);
 
@@ -27,16 +28,20 @@ export default new Router({
           children: [
             {
               path: ':step',
-              component: SignupStep
-            }
-          ]
+              component: SignupStep,
+            },
+          ],
         },
         {
           path: 'calendar',
           name: 'calendar',
           component: Calendar,
         },
-      ]
+        {
+          path: ':userId',
+          component: Profile,
+        },
+      ],
     },
   ],
 });
