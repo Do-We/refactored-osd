@@ -29,7 +29,7 @@ import hour from './hour';
     ],
     created() {
       let temp = [];
-      for(let i = 0; i <= 14; i++) {
+      for(let i = 9; i <= 23; i++) {
         temp.push(i);
       };
       this.$data.hours = temp;
@@ -40,7 +40,7 @@ import hour from './hour';
       }
     },
     methods: {
-      bookTimeslot (day, hour, data) {
+      bookTimeslot (day, hour) {
         this.$parent.$emit('selected', JSON.stringify([day, hour]));
       },
     },
