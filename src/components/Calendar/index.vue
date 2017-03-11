@@ -22,10 +22,6 @@
     methods: {
 
     },
-    computed: {
-      now: ()=> {
-      }
-    }
   }
 
 </script>
