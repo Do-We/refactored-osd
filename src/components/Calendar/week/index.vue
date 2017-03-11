@@ -21,7 +21,7 @@
       }
     }, 
     created() {
-      this.calculateDate(this.$data);
+      this.calculateDate();
       this.$on('selected', (msg)=> {
         if(this.$data.selected !== msg) {
           this.$data.selected = msg;
@@ -31,7 +31,7 @@
       })
     },
     methods: {
-      calculateDate (data) {
+      calculateDate () {
         let today = new Date();
         let past = today.getDay() - 0;
         let future = 6 - today.getDay();
@@ -45,7 +45,7 @@
           let date = moment().add(i, 'days');
           thisWeek = thisWeek.concat(date.format("ddd, Do"));
         }
-        data.currentWeek = thisWeek;
+        this.$data.currentWeek = thisWeek;
       }
     },
   }
